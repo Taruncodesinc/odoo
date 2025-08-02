@@ -2,15 +2,35 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState(""); // backend expects email
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Password:", password);
-    // login logic here
+
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        credentials: "include", // important for sending/receiving cookies
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        navigate("/home");
+      } else {
+        setError(data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Server error");
+    }
   };
 
   return (
@@ -33,13 +53,14 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
         <div className="mb-4 flex flex-row items-baseline gap-5">
-          <label className="text-gray-700 w-24">Username</label>
+          <label className="text-gray-700 w-24">Email</label>
           <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="flex-1 border border-gray-400 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter username"
+            placeholder="Enter email"
+            required
           />
         </div>
 
@@ -51,8 +72,13 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="flex-1 border border-gray-400 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter password"
+            required
           />
         </div>
+
+        {error && (
+          <p className="text-red-500 text-sm mb-2 text-center">{error}</p>
+        )}
 
         <button
           type="submit"

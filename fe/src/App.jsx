@@ -7,6 +7,7 @@ import Home from "../Pages/Home";
 import Issues from "../Pages/Issues";
 import Login from "../Pages/Login";
 import Sign from "../Pages/Sign";
+import ReportIssueForm from "../Pages/RportNewIssue";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/sign" element={<Sign />} />
       <Route path="/home" element={<Home />} />
       <Route path="/issues" element={<Issues />} />
+      <Route path="/newissue" element={<ReportIssueForm/>}/>
     </Routes>
   );
 }
