@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -74,16 +73,3 @@ const Login = () => {
 };
 
 export default Login;
-=======
-import React from 'react'
-
-function Login() {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default Login
->>>>>>> 95828edf097ec62e484d0427d32175211ca021a6
