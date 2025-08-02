@@ -1,4 +1,3 @@
-// App.jsx
 import React from "react";
 import './App.css';
 import { Routes, Route } from "react-router-dom";
@@ -7,7 +6,7 @@ import Home from "../Pages/Home";
 import Issues from "../Pages/Issues";
 import Login from "../Pages/Login";
 import Sign from "../Pages/Sign";
-import ReportIssueForm from "../Pages/RportNewIssue";
+import IssueDetail from "../Pages/IssueDetail";
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
       <Route path="/sign" element={<Sign />} />
       <Route path="/home" element={<Home />} />
       <Route path="/issues" element={<Issues />} />
-      <Route path="/newissue" element={<ReportIssueForm/>}/>
+      <Route path="/issues/:id" element={<IssueDetail />} />
     </Routes>
   );
 }
