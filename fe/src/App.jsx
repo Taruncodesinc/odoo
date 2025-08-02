@@ -17,7 +17,7 @@ function App() {
       <Route path="/sign" element={<Sign />} />
       <Route path="/home" element={<Home />} />
       <Route path="/issues" element={<Issues />} />
-      <Route path="/issues/:id" element={<IssueDetail />} />
+      <Route path="/issue/:id" element={<IssueDetail/>} />
       <Route path="/newissue" element={<ReportIssueForm/>}/>
     </Routes>
   );
