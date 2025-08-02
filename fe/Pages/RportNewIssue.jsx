@@ -68,7 +68,6 @@ const ReportIssueForm = () => {
       setError("Description must be at least 5 words.");
       return;
     }
-
     const formData = new FormData();
     formData.append("title", title);
     formData.append("category", category);
@@ -76,17 +75,14 @@ const ReportIssueForm = () => {
     formData.append("image", image);
     formData.append("isAnonymous", anonymous);
     formData.append("location", JSON.stringify(locationCoords));
-
     try {
       const res = await fetch("http://localhost:5000/api/issues/report", {
         method: "POST",
         body: formData,
+        credentials:"include"
       });
-
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.message || "Failed to submit issue");
-
       alert("Issue reported successfully!");
       setTitle("");
       setCategory("Road");

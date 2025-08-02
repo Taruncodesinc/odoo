@@ -40,11 +40,8 @@ const Sign = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp })
       });
-
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.message || "Invalid OTP");
-
       setOtpVerified(true);
       setError(null);
       alert("OTP verified!");

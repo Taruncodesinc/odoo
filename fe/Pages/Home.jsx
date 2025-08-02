@@ -67,14 +67,14 @@ function Landing() {
     <div className="bg-gray-100 min-h-screen p-4">
       {/* Navigation */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-blue-700">Civic Track</h1>
+        <h1 className="text-2xl font-bold text-blue-700"> civicTrack</h1>
         <div className="flex space-x-3">
           <Link to="/issues">
             <button className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm">
               My Issues
             </button>
           </Link>
-          <Link to="/report">
+          <Link to="/newissue">
             <button className="bg-green-600 text-white px-4 py-1 rounded-full text-sm">
               Report Issue
             </button>

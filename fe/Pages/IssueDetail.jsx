@@ -30,7 +30,7 @@ const IssueDetail = () => {
       
       {/* Header */}
       <div className="flex justify-between items-center border-b border-gray-300 pb-4">
-        <h1 className="text-3xl font-bold text-blue-500">CivicTrack</h1>
+        <h1 className="text-3xl font-bold text-blue-500">civicTrack</h1>
         <div className="space-x-3">
           <button className="bg-green-500 text-black px-4 py-1 rounded-md hover:bg-yellow-400 transition">Edit</button>
           <button className="bg-red-500 text-white px-4 py-1 rounded-md hover:bg-red-400 transition">Delete</button>
