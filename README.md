@@ -20,7 +20,7 @@
 - **Frontend**: React, Tailwind CSS
 - **Routing**: React Router DOM
 - **State Management**: React useState & useEffect
-- **Backend (Pluggable)**: Placeholder for Express / Node.js / Firebase / Any API
+- **Backend**: Express 
 
 ---
 
